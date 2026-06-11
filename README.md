@@ -60,11 +60,11 @@ The model classifies every market event into one of three actionable execution s
 The neural network architecture bridges a custom Mini-BERT backbone with a dense tabular processing pipeline using a Hugging Face Trainer wrapper.
 
 ### Architecture & Input Configuration
-* **Core Brain Architecture:** `MultiModalMiniBERTForClassification`
-* **Base Configuration:** `MINI_BERT_CONFIG`
-* **Text Context Window (Block Size):** 512 tokens (implemented via windowed step inference loops for longer documents)
 * **Tabular Features:** 5 continuous numerical parameters
 * **Classification Head Output:** 3 classes (`DOWN`, `NEUTRAL`, `UP`)
+* **Sequence Length:** Up to 512 tokens
+* **Number of Attention Heads:** [8]
+* **Hidden Layer Dimension:** [512]
 
 ### Fine-Tuning Hyperparameters (Stage 4B)
 * **Training Epochs:** 4
