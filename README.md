@@ -10,7 +10,33 @@ Unlike standard language models that only interpret headlines, or traditional qu
 By combining textual sentiment with mathematical price action, the model learns complex alpha-generating patterns that neither modality could capture alone.
 
 ---
+## 🎯 Project Objectives
+The primary goal of this project is to build a high-performance, production-grade quantitative trading brain that uses multimodal deep learning to predict market direction. 
+* **Multimodal Integration:** Seamlessly combine unstructured text (such as 10-K filings, financial news, or earnings transcripts) with structured, continuous tabular parameters (5 custom quant metrics).
+* **Directional Classification:** Predict short-to-medium-term market movements into three distinct categories: `DOWN (0)`, `NEUTRAL (1)`, and `UP (2)`.
+* **Risk-Averse Alpha Generation:** Optimize the model architecture to maintain high precision for long signals (`UP`) to avoid buying into market traps, while maintaining high recall on short signals (`DOWN`) for robust portfolio hedging.
 
+---
+
+## ⚙️ Model Parameters & Configuration
+The neural network architecture bridges a custom Mini-BERT backbone with a dense tabular processing pipeline using a Hugging Face Trainer wrapper.
+
+### Architecture & Input Configuration
+* **Core Brain Architecture:** `MultiModalMiniBERTForClassification`
+* **Base Configuration:** `MINI_BERT_CONFIG`
+* **Text Context Window (Block Size):** 512 tokens (implemented via windowed step inference loops for longer documents)
+* **Tabular Features:** 5 continuous numerical parameters
+* **Classification Head Output:** 3 classes (`DOWN`, `NEUTRAL`, `UP`)
+
+### Fine-Tuning Hyperparameters (Stage 4B)
+* **Training Epochs:** 4
+* **Batch Size:** 4 per device (optimized for stable CPU/GPU memory footprint)
+* **Learning Rate:** 2e-5
+* **Weight Decay:** 0.01
+* **Evaluation Strategy:** Epoch-based validation tracking
+* **Optimization Trick:** Best model weights automatically loaded at the end of the optimization run
+
+---
 ## 🏗️ Core Architecture & Component Directory
 
 The project structure is broken down into modular components across the model's entire lifecycle:
@@ -71,3 +97,18 @@ This file defines the structural parameters and deep learning layers of the cust
  │ Stage 5: 2026 Backtesting    │──► [Outputs: Accuracy, Precision, Recall,
  │ Slices long text into chunks │     F1-Score, and Confusion Matrix]
  └──────────────────────────────┘
+
+## 📊 Evaluation Metrics & Final Results
+The model was subjected to a rigorous backtest using completely **2026 Out-of-Sample (OOS) Data** consisting of **401 unseen documents** and corresponding tabular metrics.
+
+### Overall Performance
+* **Overall Model Accuracy:** **83.54%**
+
+### Detailed Classification Report
+| Class / Label | Precision | Recall | F1-Score | Support |
+| :--- | :---: | :---: | :---: | :---: |
+| **DOWN (0)** | 0.83 | 0.95 | 0.89 | 205 |
+| **NEUTRAL (1)** | 0.82 | 0.80 | 0.81 | 128 |
+| **UP (2)** | 0.93 | 0.56 | 0.70 | 68 |
+| **Macro Average** | 0.86 | 0.77 | 0.80 | 401 |
+| **Weighted Average** | 0.84 | 0.84 | 0.83 | 401 |
