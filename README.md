@@ -154,12 +154,10 @@ The model was subjected to a rigorous backtest using completely **2026 Out-of-Sa
 ##  Limitations
 
 - **Class Imbalance:** UP signals (68 samples) are underrepresented vs DOWN (205). Need to consider weighted loss functions for production.
-*Class Imbalance Analysis*
 - DOWN is 3x more frequent than UP
 - Precision for UP (0.93) is strong but Recall is low (0.56)
 - Recommendation: Use `class_weights` or threshold tuning in production
 - Consider F1-Score weighted strategy for trading system priority
-- 
 - **Lookback Period:** Model trained on historical data; future market regimes may differ.
 - **Data Lag:** SEC filings have inherent publication delays.
 - **Not Financial Advice:** Model outputs are signals, not guaranteed trading recommendations.
