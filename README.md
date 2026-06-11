@@ -17,7 +17,45 @@ The primary goal of this project is to build a high-performance, production-grad
 * **Risk-Averse Alpha Generation:** Optimize the model architecture to maintain high precision for long signals (`UP`) to avoid buying into market traps, while maintaining high recall on short signals (`DOWN`) for robust portfolio hedging.
 
 ---
+## 💡 Context: The System Explained Simply
 
+To make a prediction, the model acts like a professional Wall Street analyst—it simultaneously reads the **"vibe" (the words)** and tracks the **"math" (the numbers)** across 5 distinct data feeds:
+
+### 1. SEC Filings (10-K & 10-Q)
+By law, public companies must file these truth-backed reports with the government.
+*   **10-K:** A massive **annual** report breaking down the company's financial health, structural risks, and future strategy.
+*   **10-Q:** A lighter, **quarterly** update showing how the company is performing every three months.
+
+### 2. Earnings Calls
+Four times a year, corporate executives host a live call to discuss their financial results. The model reads the **written transcript** of these calls, analyzing both the prepared speeches and the unscripted Q&A sessions where nervous or confident executive answers tip off the market.
+
+### 3. FOMC Minutes (Macroeconomic Text)
+This looks at the "big picture" economic weather. The FOMC is the group at the Federal Reserve that sets **interest rates**. The model scans their official meeting notes and statements word-by-word to spot clues about inflation, recession risks, and sweeping market shifts.
+
+### 4. Tabular Data (Market Prices)
+This is the raw mathematical reality. It skips the words and looks at structured spreadsheet columns tracking **5 continuous market metrics**: live stock prices, trading volume (how many shares are changing hands), and mathematical momentum indicators.
+
+---
+
+### 🧠 What are we getting from the Final Model?
+
+The final model serves as an automated, multi-modal **"Trading Brain."** Instead of a human spending hours reading a 150-page document and staring at stock charts, the model processes both instantly. 
+
+Upon receiving a new event, the model fuses the text embeddings and numerical metrics into a single calculation matrix and outputs a **Directional Signal**.
+
+### 🚦 The Meaning of the Signals
+
+The model classifies every market event into one of three actionable execution signals:
+
+*   **🔻 DOWN (0): A Strong Sell / Hedge Signal**
+    *   *What it means:* The model detects severe underlying trouble (e.g., toxic phrasing in a 10-K combined with collapsing price momentum). 
+    *   *Action:* In live trading, this tells the system to sell the stock, avoid buying it, or open a short/hedge position to protect capital.
+*   **⚖️ NEUTRAL (1): A "Do Nothing" / Hold Signal**
+    *   *What it means:* The text and numbers suggest the market is consolidating, moving sideways, or that there isn't enough high-conviction data to make a directional bet.
+    *   *Action:* The system stays flat, holding current cash. This prevents "over-trading" and saves thousands of dollars in unnecessary transaction fees.
+*   **🚀 UP (2): A High-Conviction Buy Signal**
+    *   *What it means:* The model detects a powerful alignment of positive news (e.g., strong earnings call Q&A) and healthy price math.
+    *   *Action:* The system triggers a long entry (buys the asset). Because our model is optimized for extreme precision here (93% accuracy), an UP signal represents a very safe, high-probability trade.
 ## ⚙️ Model Parameters & Configuration
 The neural network architecture bridges a custom Mini-BERT backbone with a dense tabular processing pipeline using a Hugging Face Trainer wrapper.
 
