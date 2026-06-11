@@ -47,13 +47,13 @@ Upon receiving a new event, the model fuses the text embeddings and numerical me
 
 The model classifies every market event into one of three actionable execution signals:
 
-*   ** DOWN (0): A Strong Sell / Hedge Signal**
+*   **DOWN (0): A Strong Sell / Hedge Signal**
     *   *What it means:* The model detects severe underlying trouble (e.g., toxic phrasing in a 10-K combined with collapsing price momentum). 
     *   *Action:* In live trading, this tells the system to sell the stock, avoid buying it, or open a short/hedge position to protect capital.
-*   ** NEUTRAL (1): A "Do Nothing" / Hold Signal**
+*   **NEUTRAL (1): A "Do Nothing" / Hold Signal**
     *   *What it means:* The text and numbers suggest the market is consolidating, moving sideways, or that there isn't enough high-conviction data to make a directional bet.
     *   *Action:* The system stays flat, holding current cash. 
-*   ** UP (2): A High-Conviction Buy Signal**
+*   **UP (2): A High-Conviction Buy Signal**
     *   *What it means:* The model detects a powerful alignment of positive news (e.g., strong earnings call Q&A) and healthy price math.
     *   *Action:* The system triggers a long entry (buys the asset).
 ##  Model Parameters & Configuration
