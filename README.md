@@ -19,7 +19,7 @@ The primary goal of this project is to build a high-performance, production-grad
 ---
 ##  Context: The System Explained Simply
 
-To make a prediction, the model acts like a professional Wall Street analyst—it simultaneously reads the **"vibe" (the words)** and tracks the **"math" (the numbers)** across 5 distinct data feeds:
+To make a prediction, the model acts like a professional Wall Street analyst,it simultaneously reads the **words** and tracks the **numbers** across 5 distinct data feeds:
 
 ### 1. SEC Filings (10-K & 10-Q)
 By law, public companies must file these truth-backed reports with the government.
