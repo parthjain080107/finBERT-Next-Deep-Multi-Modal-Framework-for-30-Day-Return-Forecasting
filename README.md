@@ -68,7 +68,6 @@ The neural network architecture bridges a custom Mini-BERT backbone with a dense
 
 ### Fine-Tuning Hyperparameters (Stage 4B)
 * **Training Epochs:** 4
-* **Batch Size:** 4 per device (optimized for stable CPU/GPU memory footprint)
 * **Learning Rate:** 2e-5
 * **Weight Decay:** 0.01
 * **Evaluation Strategy:** Epoch-based validation tracking
