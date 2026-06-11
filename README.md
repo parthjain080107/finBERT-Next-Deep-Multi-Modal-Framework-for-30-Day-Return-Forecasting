@@ -1,6 +1,6 @@
 # finBERT-Next-Deep-Multi-Modal-Framework-for-30-Day-Return-Forecasting
 
-## 🧠 Project Overview
+##  Project Overview
 **finBERT-NEXT** is an end-to-end multi-modal quantitative deep learning framework designed to forecast 30-day stock market returns into discrete signals (**UP**, **DOWN**, **NEUTRAL**). 
 
 Unlike standard language models that only interpret headlines, or traditional quantitative models that only analyze price charts, `finBERT-NEXT` implements a hybrid architectural design. It simultaneously ingests and fuses:
@@ -10,14 +10,14 @@ Unlike standard language models that only interpret headlines, or traditional qu
 By combining textual sentiment with mathematical price action, the model learns complex alpha-generating patterns that neither modality could capture alone.
 
 ---
-## 🎯 Project Objectives
+##  Project Objectives
 The primary goal of this project is to build a high-performance, production-grade quantitative trading brain that uses multimodal deep learning to predict market direction. 
 * **Multimodal Integration:** Seamlessly combine unstructured text (such as 10-K filings, financial news, or earnings transcripts) with structured, continuous tabular parameters (5 custom quant metrics).
 * **Directional Classification:** Predict short-to-medium-term market movements into three distinct categories: `DOWN (0)`, `NEUTRAL (1)`, and `UP (2)`.
 * **Risk-Averse Alpha Generation:** Optimize the model architecture to maintain high precision for long signals (`UP`) to avoid buying into market traps, while maintaining high recall on short signals (`DOWN`) for robust portfolio hedging.
 
 ---
-## 💡 Context: The System Explained Simply
+##  Context: The System Explained Simply
 
 To make a prediction, the model acts like a professional Wall Street analyst—it simultaneously reads the **"vibe" (the words)** and tracks the **"math" (the numbers)** across 5 distinct data feeds:
 
@@ -37,26 +37,26 @@ This is the raw mathematical reality. It skips the words and looks at structured
 
 ---
 
-### 🧠 What are we getting from the Final Model?
+###  What are we getting from the Final Model?
 
 The final model serves as an automated, multi-modal **"Trading Brain."** Instead of a human spending hours reading a 150-page document and staring at stock charts, the model processes both instantly. 
 
 Upon receiving a new event, the model fuses the text embeddings and numerical metrics into a single calculation matrix and outputs a **Directional Signal**.
 
-### 🚦 The Meaning of the Signals
+###  The Meaning of the Signals
 
 The model classifies every market event into one of three actionable execution signals:
 
-*   **🔻 DOWN (0): A Strong Sell / Hedge Signal**
+*   ** DOWN (0): A Strong Sell / Hedge Signal**
     *   *What it means:* The model detects severe underlying trouble (e.g., toxic phrasing in a 10-K combined with collapsing price momentum). 
     *   *Action:* In live trading, this tells the system to sell the stock, avoid buying it, or open a short/hedge position to protect capital.
-*   **⚖️ NEUTRAL (1): A "Do Nothing" / Hold Signal**
+*   ** NEUTRAL (1): A "Do Nothing" / Hold Signal**
     *   *What it means:* The text and numbers suggest the market is consolidating, moving sideways, or that there isn't enough high-conviction data to make a directional bet.
     *   *Action:* The system stays flat, holding current cash. 
-*   **🚀 UP (2): A High-Conviction Buy Signal**
+*   ** UP (2): A High-Conviction Buy Signal**
     *   *What it means:* The model detects a powerful alignment of positive news (e.g., strong earnings call Q&A) and healthy price math.
     *   *Action:* The system triggers a long entry (buys the asset).
-## ⚙️ Model Parameters & Configuration
+##  Model Parameters & Configuration
 The neural network architecture bridges a custom Mini-BERT backbone with a dense tabular processing pipeline using a Hugging Face Trainer wrapper.
 
 ### Architecture & Input Configuration
@@ -74,7 +74,7 @@ The neural network architecture bridges a custom Mini-BERT backbone with a dense
 * **Optimization Trick:** Best model weights automatically loaded at the end of the optimization run
 
 ---
-## 🏗️ Core Architecture & Component Directory
+##  Core Architecture & Component Directory
 
 The project structure is broken down into modular components across the model's entire lifecycle:
 
@@ -104,7 +104,7 @@ This file defines the structural parameters and deep learning layers of the cust
 
 ---
 
-## 🚀 The End-to-End System Pipeline
+##  The End-to-End System Pipeline
 
 ```text
  [Raw SEC / Macro Text]            [Raw Stock Price CSVs]
@@ -135,7 +135,7 @@ This file defines the structural parameters and deep learning layers of the cust
  │ Slices long text into chunks │     F1-Score, and Confusion Matrix]
  └──────────────────────────────┘
 ```
-## 📊 Evaluation Metrics & Final Results
+##  Evaluation Metrics & Final Results
 The model was subjected to a rigorous backtest using completely **2026 Out-of-Sample (OOS) Data** consisting of **401 unseen documents** and corresponding tabular metrics.
 
 ### Overall Performance
