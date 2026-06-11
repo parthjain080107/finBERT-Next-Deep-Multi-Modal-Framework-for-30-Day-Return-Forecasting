@@ -1,0 +1,1 @@
+# finBERT-Next-Deep-Multi-Modal-Framework-for-30-Day-Return-Forecasting
